@@ -1,8 +1,6 @@
 import pygame
 
 
-
-
 class Player:
     def __init__(self, position):
         self.slider = pygame.Rect((position, 50, 10, 70))
@@ -21,11 +19,11 @@ def main():
     # initialise screen
     SCREEN_WIDTH = 800
     SCREEN_HEIGHT = 600
-    
+
     pygame.init()
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     pygame.display.set_caption("Pong")
-    
+
     # initialise players
     global p1
     global p2
@@ -36,7 +34,7 @@ def main():
     while True:
 
         screen.fill((0, 0, 0))
-    
+
         pygame.draw.rect(screen, (255, 255, 255), p1.slider)
         pygame.draw.rect(screen, (255, 255, 255), p2.slider)
 
@@ -55,7 +53,7 @@ def main():
             if event.type == pygame.QUIT:
                 return
 
-                
+
         pygame.display.update()
 
 
