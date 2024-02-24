@@ -1,4 +1,5 @@
 import pygame
+from network import Network
 
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
@@ -10,8 +11,7 @@ clientNumber = 0
 
 
 class Player:
-    def __init__(self, player_num, x, y=50, width=10, height=70, color=(255, 255, 255)):
-        self.player_num = player_num
+    def __init__(self, x, y=50, width=10, height=70, color=(255, 255, 255)):
         self.x = x
         self.y = y
         self.width = width
@@ -26,47 +26,59 @@ class Player:
     def move(self):
         keys = pygame.key.get_pressed()
 
-        if self.player_num == 1:
+        if keys[pygame.K_w] or keys[pygame.K_UP]:
+            self.y -= self.velocity
 
-            if keys[pygame.K_w]:
-                self.y -= self.velocity
+        if keys[pygame.K_s] or keys[pygame.K_DOWN]:
+            self.y += self.velocity
 
-            if keys[pygame.K_s]:
-                self.y += self.velocity
+        self.update()
 
-        elif self.player_num == 2:
-
-            if keys[pygame.K_UP]:
-                self.y -= self.velocity
-
-            if keys[pygame.K_DOWN]:
-                self.y += self.velocity
-
+    def update(self):
         self.rect = (self.x, self.y, self.width, self.height)
 
 
-def redraw_window(player, win=window):
+def read_pos(string):
+    string = string.split(",")
+    return int(string[0]), int(string[1])
+
+
+def make_pos(tup):
+    return str(tup[0]) + "," + str(tup[1])
+
+
+def redraw_window(player1, player2, win=window):
     win.fill((0, 0, 0))
-    player.draw(win)
+    player1.draw(win)
+    player2.draw(win)
     pygame.display.update()
 
 
 def main():
     running = True
+    n = Network()
+    start_pos = read_pos(n.get_pos())
 
-    p2 = Player(2, SCREEN_WIDTH - 50)
+    p1 = Player(start_pos[0], start_pos[1])
+    p2 = Player(SCREEN_WIDTH - 50, 50)
 
     clock = pygame.time.Clock()
 
     while running:
         clock.tick(60)
+
+        p2pos = read_pos(n.send(make_pos((p1.x, p1.y))))
+        p2.x = p2pos[0]
+        p2.y = p2pos[1]
+        p2.update()
+
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
                 pygame.quit()
 
-        p2.move()
-        redraw_window(p2)
+        p1.move()
+        redraw_window(p1, p2)
 
 
 main()
