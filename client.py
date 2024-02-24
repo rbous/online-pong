@@ -37,15 +37,6 @@ class Player:
     def update(self):
         self.rect = (self.x, self.y, self.width, self.height)
 
-"""
-def read_pos(string):
-    string = string.split(",")
-    return int(string[0]), int(string[1])
-
-
-def make_pos(tup):
-    return str(tup[0]) + "," + str(tup[1])
-"""
 
 def redraw_window(player1, player2, win=window):
     win.fill((0, 0, 0))
