@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f324c19-471e-4c27-be9b-293d8af90f99" name="Changes" comment="network">
+    <list default="true" id="5f324c19-471e-4c27-be9b-293d8af90f99" name="Changes" comment="p1 and p2 can interact (two players)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/client.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/network.py" beforeDir="false" afterPath="$PROJECT_DIR$/network.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/server.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,7 +44,7 @@
     "last_opened_file_path": "C:/Users/rbous/PycharmProjects/pygame/server.py"
   }
 }]]></component>
-  <component name="RunManager" selected="Python.client">
+  <component name="RunManager">
     <configuration name="client" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="pygame" />
       <option name="ENV_FILES" value="" />
@@ -173,7 +172,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708803011026</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="p1 and p2 can interact (two players)">
+      <option name="closed" value="true" />
+      <created>1708812342410</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1708812342410</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -181,6 +188,7 @@
     <MESSAGE value="created sliders" />
     <MESSAGE value="server" />
     <MESSAGE value="network" />
-    <option name="LAST_COMMIT_MESSAGE" value="network" />
+    <MESSAGE value="p1 and p2 can interact (two players)" />
+    <option name="LAST_COMMIT_MESSAGE" value="p1 and p2 can interact (two players)" />
   </component>
 </project>

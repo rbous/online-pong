@@ -37,7 +37,7 @@ class Player:
     def update(self):
         self.rect = (self.x, self.y, self.width, self.height)
 
-
+"""
 def read_pos(string):
     string = string.split(",")
     return int(string[0]), int(string[1])
@@ -45,7 +45,7 @@ def read_pos(string):
 
 def make_pos(tup):
     return str(tup[0]) + "," + str(tup[1])
-
+"""
 
 def redraw_window(player1, player2, win=window):
     win.fill((0, 0, 0))
@@ -57,19 +57,17 @@ def redraw_window(player1, player2, win=window):
 def main():
     running = True
     n = Network()
-    start_pos = read_pos(n.get_pos())
+    start_pos = int(n.get_pos())
 
-    p1 = Player(start_pos[0], start_pos[1])
-    p2 = Player(SCREEN_WIDTH - 50, 50)
+    p1 = Player(start_pos)
+    p2 = Player(SCREEN_WIDTH - 50)
 
     clock = pygame.time.Clock()
 
     while running:
         clock.tick(60)
-
-        p2pos = read_pos(n.send(make_pos((p1.x, p1.y))))
-        p2.x = p2pos[0]
-        p2.y = p2pos[1]
+        p2pos = int(n.send(str(p1.y)))
+        p2.y = p2pos
         p2.update()
 
         for event in pygame.event.get():
