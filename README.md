@@ -1,2 +1,2 @@
 # Online Pong
-Online Pong is an in-progress project for playing pong with friends online.
+online-pong is an in-progress project made with pygame for playing pong with friends online.
